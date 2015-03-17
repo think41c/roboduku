@@ -3,7 +3,7 @@ class Puzzle
   attr_reader :original_puzzle
 
   def initialize(filename)
-    split_puzzle(read_puzzle(filename))
+    @original_puzzle ||= read_puzzle(filename).join('').delete("\n").split('')
   end
 
   def read_puzzle(filename)
@@ -12,9 +12,4 @@ class Puzzle
       sudoku_puzzle << line
     end 
   end
-
-  def split_puzzle(sudoku_puzzle)
-    @original_puzzle = sudoku_puzzle.join('').delete("\n").split('')
-  end
-
 end

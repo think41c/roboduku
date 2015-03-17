@@ -4,7 +4,6 @@ require_relative './puzzle'
 class Runner
 
   attr_accessor :good_solution
-
   attr_reader :original_puzzle
 
   def initialize(filename)
@@ -20,14 +19,13 @@ class Runner
   def check_solution(solution)
     @good_solution = solution.none? {|value| value.to_i == 0}
   end
-
 end
 
 start_time = Time.now
 counter = 0
 
 while true
-  run = Runner.new("puzzle_5.txt")
+  run = Runner.new("puzzle_3.txt")
   solution = run.find_solution
   run.check_solution(solution)
   counter += 1
@@ -40,5 +38,3 @@ print solution
 puts "\n"
 puts counter
 puts time
-
-
